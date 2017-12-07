@@ -6,8 +6,8 @@ import java.util.Random;
 
 public class Game {
 
-	private int shipEnergy = 10000;
-	private int numberOfTorpedoes = 8;
+//	private int shipEnergy = 10000;
+//	private int numberOfTorpedoes = 8;
 	final private static int PHASER_MAX_DISTANCE = 4000;
     final private static int TORPEDO_BASE_DAMAGE = 800;
     final private static int TORPEDO_ADJUSTED_DAMAGE = 50;
@@ -15,15 +15,10 @@ public class Game {
     final private static int DISTANCE_FACTOR = 500;
     final private static int HIT_RANDOMIZER = 4;
 
-    public int EnergyRemaining() {
-        return shipEnergy;
-    }
+    private Ship ship = new Ship();
 
-    public void setTorpedoes(int value) {
-        numberOfTorpedoes = value;
-        }
-    public int getTorpedoes() {
-        return numberOfTorpedoes;
+    public int EnergyRemaining() {
+        return ship.getShipEnergy();
     }
 
     public void fireWeapon(WebGadget wg) {
@@ -61,13 +56,13 @@ public class Game {
                     // asses the damage on enemy and see if destroyed
                     enemyShipEnergyRemaining(wg, damage, enemy);
 				}
-                numberOfTorpedoes -= 1;
+                ship.shootTorpedo();
 			}
 		}
 	}
 
 	private boolean hasEnoughEnergyToFire(Galaxy wg, int energyUsed) {
-		if (shipEnergy > energyUsed) {
+		if (ship.getShipEnergy() > energyUsed) {
 			return true;
 		} else {
 			wg.writeLine("Insufficient energy to fire phasers!");
@@ -109,7 +104,8 @@ public class Game {
 	}
 
 	private boolean hasTorpedoes(Galaxy wg) {
-        if (numberOfTorpedoes <= 0)
+    	int numberOfTorpedoes = ship.getNumberOfTorpedoes();
+        if (ship.getNumberOfTorpedoes() <= 0)
             wg.writeLine("No more photon torpedoes!");
         return numberOfTorpedoes > 0;
     }
@@ -122,7 +118,7 @@ public class Game {
     }
 
     private void updateShipEnergy(int energyUsed) {
-        shipEnergy -= energyUsed;
+        ship.reduceShipEnergy(energyUsed);
     }
 
     // note we made generator public in order to mock it
@@ -131,4 +127,13 @@ public class Game {
 	private static int rnd(int maximum) {
 		return generator.nextInt(maximum);
 	}
+
+    //Exposed for testing only
+    public void setTorpedoes(int value) {
+        ship.setTorpedoes(value);
+    }
+    public int getTorpedoes() {
+        return ship.getTorpedoes();
+    }
+
 }
