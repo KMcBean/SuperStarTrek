@@ -25,6 +25,18 @@ public class ShieldTest {
 	       Assert.assertEquals(currentEnergy + 1000, shield.GetEnergy());
     	
     }
+    
+    @Test
+    public void ShieldEnergyLimit() {
+		   Shield shield = new Shield ();
+		   int currentEnergy = shield.GetEnergy();
+		   shield.AddEnergy (5000);
+	       Assert.assertEquals(currentEnergy + 5000, shield.GetEnergy());
+	       currentEnergy = shield.GetEnergy();
+		   shield.AddEnergy (6000);
+	       Assert.assertEquals(10000, shield.GetEnergy());	
+    }
+
 
 }
 

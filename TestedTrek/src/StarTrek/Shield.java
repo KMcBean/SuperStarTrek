@@ -2,6 +2,7 @@ package StarTrek;
 
 public class Shield {
 
+	int MAX_SHIELD = 10000;
     private boolean isUp = false;
     private int energy = 0;
 
@@ -23,6 +24,8 @@ public class Shield {
 
 	public void AddEnergy(int value) {
 		energy += value;
+		if (energy > MAX_SHIELD)
+			energy = 10000;
 		
 	}
 
