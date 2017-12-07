@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-
+//Test Git 2
 public class ShieldTest {
     private Game game;
     private MockGalaxy context;
