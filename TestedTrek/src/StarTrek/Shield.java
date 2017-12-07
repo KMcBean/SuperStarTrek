@@ -1,12 +1,21 @@
 package StarTrek;
 
 public class Shield {
+	private boolean isDamaged = false;
 
 	int MAX_SHIELD = 10000;
     private boolean isUp = false;
     private int energy = 0;
 
-    public void raise() {
+	public void setDamaged() {
+		isDamaged = true;
+	}
+
+	public boolean isDamaged() {
+		return isDamaged;
+	}
+
+	public void raise() {
         isUp = true;
     }
 

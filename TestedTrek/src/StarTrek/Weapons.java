@@ -1,6 +1,8 @@
 package StarTrek;
 
 public class Weapons {
+    private boolean isDamaged = false;
+
     private int numberOfTorpedoes = 8;
     final private static int PHASER_MAX_DISTANCE = 4000;
     final private static int TORPEDO_BASE_DAMAGE = 800;
@@ -9,6 +11,14 @@ public class Weapons {
     final private static int DISTANCE_FACTOR = 500;
     final private static int HIT_RANDOMIZER = 4;
     private Game game;
+
+    public void setDamaged() {
+        isDamaged = true;
+    }
+
+    public boolean isDamaged() {
+        return isDamaged;
+    }
 
     public void fireWeapon(Game _game, Galaxy wg, Ship ship) {
         game = _game;
