@@ -7,9 +7,14 @@ import org.junit.Test;
 public class ShieldTest {
 
     @Test
-    public void RaiseShield() {
+    public void ShieldDownAtStart() {
         Shield shield = new Shield();
         Assert.assertFalse(shield.isUp());
+    }
+
+    @Test
+    public void RaiseShield() {
+        Shield shield = new Shield();
         shield.raise();
         Assert.assertTrue(shield.isUp());
     }
