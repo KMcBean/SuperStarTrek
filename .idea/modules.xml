@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/LunEx/LunEx.iml" filepath="$PROJECT_DIR$/LunEx/LunEx.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MessTrek/MessTrek.iml" filepath="$PROJECT_DIR$/MessTrek/MessTrek.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SuperStarTrek.iml" filepath="$PROJECT_DIR$/SuperStarTrek.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TestedTrek/TestedTrek.iml" filepath="$PROJECT_DIR$/TestedTrek/TestedTrek.iml" />
+    </modules>
+  </component>
+</project>
