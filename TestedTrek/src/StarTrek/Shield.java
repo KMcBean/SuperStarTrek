@@ -3,6 +3,7 @@ package StarTrek;
 public class Shield {
 
     private boolean isUp = false;
+    private int energy = 0;
 
     public void raise() {
         isUp = true;
@@ -15,5 +16,14 @@ public class Shield {
     public boolean isUp() {
         return isUp;
     }
+
+	public int GetEnergy() {
+		return energy;
+	}
+
+	public void AddEnergy(int value) {
+		energy += value;
+		
+	}
 
 }
