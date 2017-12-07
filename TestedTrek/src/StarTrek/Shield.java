@@ -26,7 +26,6 @@ public class Shield {
 		energy += value;
 		if (energy > MAX_SHIELD)
 			energy = 10000;
-		
 	}
 
 }
