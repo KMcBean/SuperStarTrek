@@ -28,4 +28,16 @@ public class Shield {
 			energy = 10000;
 	}
 
+	public void DeductEnergy(int value) {
+		if (isUp)
+		{
+			energy -= value;
+			if (energy <= 0)
+			{
+				energy = 0;
+				isUp = false;
+			}
+		}
+	}
+
 }
