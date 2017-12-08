@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="cucumber-java">
+    <CLASSES>
+      <root url="jar://$APPLICATION_HOME_DIR$/plugins/cucumber-java/lib/cucumber-java.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
