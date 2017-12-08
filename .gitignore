@@ -12,3 +12,4 @@
 hs_err_pid*
 .idea/workspace.xml
 .idea/libraries/cucumber_java.xml
+out/production/TestedTrek/Tests/Shield.feature
