@@ -13,34 +13,46 @@ public class ShieldTest {
     }
 
     @Test
+    public void RaiseDepletedShield() {
+        Shield shield = new Shield();
+        shield.raise();
+        Assert.assertFalse(shield.isUp());
+    }
+
+    @Test
     public void RaiseShield() {
         Shield shield = new Shield();
+        shield.AddEnergy (5000);
         shield.raise();
         Assert.assertTrue(shield.isUp());
     }
 
     @Test
+    public void InitialShieldEnergy() {
+	   Shield shield = new Shield ();
+	   Assert.assertEquals(0, shield.GetEnergy());
+    }
+    
+    @Test
     public void TransferEnergyToShield() {
 		   Shield shield = new Shield ();
-		   int currentEnergy = shield.GetEnergy();
 		   shield.AddEnergy (5000);
-	       Assert.assertEquals(currentEnergy + 5000, shield.GetEnergy());
-	       currentEnergy = shield.GetEnergy();
-		   shield.AddEnergy (1000);
-	       Assert.assertEquals(currentEnergy + 1000, shield.GetEnergy());
-    	
+	       Assert.assertEquals(5000, shield.GetEnergy());   	
     }
     
     @Test
     public void ShieldEnergyLimit() {
 		   Shield shield = new Shield ();
-		   int currentEnergy = shield.GetEnergy();
-		   shield.AddEnergy (5000);
-	       Assert.assertEquals(currentEnergy + 5000, shield.GetEnergy());
-		   shield.AddEnergy (6000);
+		   shield.AddEnergy (11000);
 	       Assert.assertEquals(10000, shield.GetEnergy());	
     }
 
+    @Test
+    public void ShieldEnergyExcess() {
+		   Shield shield = new Shield ();
+		   int excess = shield.AddEnergy (11000);
+	       Assert.assertEquals(1000, excess);
+    }
 
 }
 

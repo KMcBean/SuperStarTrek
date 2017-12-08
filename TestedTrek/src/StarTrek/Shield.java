@@ -16,7 +16,10 @@ public class Shield {
 	}
 
 	public void raise() {
-        isUp = true;
+		if (energy > 0)
+			isUp = true;
+		else
+			isUp = false;
     }
 
     public void lower() {
@@ -31,10 +34,15 @@ public class Shield {
 		return energy;
 	}
 
-	public void AddEnergy(int value) {
+	public int AddEnergy(int value) {
+		int excess = 0;
 		energy += value;
 		if (energy > MAX_SHIELD)
-			energy = 10000;
+		{
+			excess = energy - MAX_SHIELD;
+			energy = MAX_SHIELD;
+		}
+		return excess;
 	}
 
 	public void DeductEnergy(int value) {
